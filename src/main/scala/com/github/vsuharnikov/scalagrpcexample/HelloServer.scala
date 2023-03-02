@@ -2,6 +2,7 @@ package com.github.vsuharnikov.scalagrpcexample
 
 import com.github.vsuharnikov.scalagrpcexample.hello.{HelloWorldGrpc, SayHelloRequest, SayHelloResponse}
 import io.grpc.netty.NettyServerBuilder
+import io.grpc.protobuf.services.ProtoReflectionService
 
 import scala.concurrent._
 
@@ -16,6 +17,7 @@ object HelloServer extends App {
   val server = NettyServerBuilder
     .forPort(10000)
     .addService(HelloWorldGrpc.bindService(new HelloService, ExecutionContext.global))
+    .addService(ProtoReflectionService.newInstance()) // Optional
     .build
     .start
 

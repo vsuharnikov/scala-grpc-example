@@ -8,7 +8,8 @@ scalaVersion := "2.13.10"
 libraryDependencies ++= Seq(
   "com.thesamet.scalapb" %% "scalapb-runtime"      % scalapbVersion % "protobuf",
   "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapbVersion,
-  "io.grpc"               % "grpc-netty"           % grpcJavaVersion
+  "io.grpc"               % "grpc-netty"           % grpcJavaVersion,
+  "io.grpc"               % "grpc-services"        % grpcJavaVersion
 )
 
 Compile / PB.targets := Seq(
